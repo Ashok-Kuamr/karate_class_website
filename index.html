@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Unique Dance World – Karate Classes | Kuchaman City</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #F5C518;
+    --gold-dark: #c9a000;
+    --gold-light: #ffe066;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --dark2: #1a1a1a;
+    --dark3: #222222;
+    --white: #ffffff;
+    --gray: #aaaaaa;
+    --red: #e63c2f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999; opacity: 0.3;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245,197,24,0.15);
+    transition: all 0.3s;
+  }
+  nav.scrolled { height: 60px; background: rgba(10,10,10,0.98); }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+    line-height: 1.1;
+  }
+  .nav-logo span { color: var(--white); display: block; font-size: 0.65rem; letter-spacing: 4px; font-family: 'Poppins', sans-serif; font-weight: 300; }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    color: var(--black) !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 25px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,197,24,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(230,60,47,0.05) 0%, transparent 60%),
+      linear-gradient(160deg, #0a0a0a 0%, #111 50%, #0d0d0d 100%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 5%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245,197,24,0.12);
+    border: 1px solid rgba(245,197,24,0.3);
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    animation: fadeInUp 0.6s 0.1s ease both;
+  }
+  .hero-title .line-gold { color: var(--gold); display: block; }
+  .hero-title .line-outline {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+    display: block;
+  }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 440px;
+    animation: fadeInUp 0.6s 0.2s ease both;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0.7rem;
+    margin-top: 1.5rem;
+    animation: fadeInUp 0.6s 0.3s ease both;
+  }
+  .hero-tag {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.2);
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-btns {
+    display: flex; gap: 1rem; align-items: center;
+    margin-top: 2rem;
+    animation: fadeInUp 0.6s 0.4s ease both;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 2px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.4s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,197,24,0.4); }
+  .btn-primary:hover::after { left: 100%; }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    cursor: pointer; background: none; border: none;
+  }
+  .btn-secondary:hover { color: var(--gold); }
+  .btn-secondary .arrow { font-size: 1.2rem; transition: transform 0.2s; }
+  .btn-secondary:hover .arrow { transform: translateX(4px); }
+
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    animation: fadeInRight 0.8s 0.2s ease both;
+  }
+
+  .hero-kanji {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(12rem, 22vw, 18rem);
+    color: rgba(245,197,24,0.05);
+    position: absolute;
+    line-height: 1;
+    letter-spacing: -5px;
+    user-select: none;
+  }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(245,197,24,0.1);
+    border: 1px solid rgba(245,197,24,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative; z-index: 2;
+    width: 100%;
+  }
+  .stat-box {
+    background: var(--dark2);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .stat-box:hover { background: var(--dark3); }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--gray);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 100px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 30px; height: 2px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .section-title span { color: var(--gold); }
+
+  .section-desc {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    max-width: 580px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--dark); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 5rem; align-items: center;
+    margin-top: 4rem;
+  }
+
+  .sensei-card {
+    position: relative;
+  }
+  .sensei-img-wrap {
+    position: relative;
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sensei-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    color: rgba(245,197,24,0.15);
+    text-align: center;
+    line-height: 1;
+  }
+  .sensei-img-wrap::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(245,197,24,0.08), transparent);
+  }
+  .sensei-badge {
+    position: absolute; bottom: -1px; left: -1px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+
+  .about-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+    color: var(--white);
+  }
+  .about-text .sensei-title {
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .about-text p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .about-achievements {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 2rem;
+  }
+  .achievement {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.1);
+    padding: 1rem;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+  .achievement:hover { border-color: rgba(245,197,24,0.3); }
+  .ach-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .ach-text strong { display: block; font-size: 0.85rem; color: var(--white); }
+  .ach-text span { font-size: 0.75rem; color: var(--gray); }
+
+  /* ── CLASSES ── */
+  #classes { background: var(--black); }
+
+  .classes-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 4rem;
+  }
+
+  .class-card {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  .class-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(245,197,24,0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .class-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(245,197,24,0.15);
+  }
+  .class-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute; top: 16px; right: -28px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 40px;
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  .class-icon-wrap {
+    height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--dark3), var(--dark2));
+    font-size: 3.5rem;
+    position: relative; overflow: hidden;
+  }
+  .class-icon-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(245,197,24,0.08), transparent 70%);
+  }
+
+  .class-body { padding: 1.5rem; }
+  .class-body h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .class-body p { color: var(--gray); font-size: 0.82rem; line-height: 1.7; }
+
+  .class-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(245,197,24,0.1);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .class-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .class-price small { font-family: 'Poppins', sans-serif; font-size: 0.65rem; color: var(--gray); display: block; letter-spacing: 0; }
+
+  .class-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,197,24,0.1);
+    border: 1px solid rgba(245,197,24,0.2);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  /* Special class for schools */
+  .camps-banner {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, var(--dark2), var(--dark3));
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  }
+  .camps-text h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+  }
+  .camps-text h4 span { color: var(--gold); }
+  .camps-text p { color: var(--gray); font-size: 0.85rem; }
+
+  /* ── TIMING ── */
+  #timing { background: var(--dark); }
+
+  .timing-wrap {
+    margin-top: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  }
+  .timing-card {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.15);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .timing-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--gold);
+  }
+  .timing-card.coming-soon { border-style: dashed; opacity: 0.7; }
+  .timing-card.coming-soon::before { background: var(--gray); }
+
+  .timing-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .timing-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+  .timing-days {
+    font-size: 0.82rem;
+    color: var(--gray);
+  }
+  .coming-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--gray);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 0.8rem;
+  }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--black); }
+
+  .gallery-placeholder {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .gallery-item {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .gallery-item:hover { transform: scale(1.03); border-color: rgba(245,197,24,0.4); }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: unset; }
+  .gallery-item:first-child .gallery-icon { font-size: 5rem; }
+
+  .gallery-icon { font-size: 2.5rem; color: rgba(245,197,24,0.2); }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: rgba(245,197,24,0.05);
+    display: flex; align-items: flex-end; padding: 1rem;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .gallery-note {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  /* ── SOCIAL ── */
+  .social-links {
+    display: flex; gap: 1rem; margin-top: 1.5rem;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.2);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+  .social-btn svg { width: 16px; height: 16px; }
+
+  /* ── ENQUIRY FORM ── */
+  #enquiry { background: var(--dark); }
+
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-top: 4rem; align-items: start;
+  }
+
+  .form-side h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .form-side p { color: var(--gray); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+  .form-info-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .form-info-list li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.85rem; color: var(--gray);
+  }
+  .form-info-list .ico {
+    width: 36px; height: 36px;
+    background: rgba(245,197,24,0.1);
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+    color: var(--gold);
+  }
+  .form-info-list strong { display: block; color: var(--white); font-size: 0.85rem; }
+
+  .reg-form {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.15);
+    border-radius: 4px;
+    padding: 2.5rem;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid rgba(245,197,24,0.1);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    padding: 12px 14px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--dark3); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(245,197,24,0.3);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+  .form-success .tick { font-size: 3rem; margin-bottom: 1rem; }
+  .form-success h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .form-success p { color: var(--gray); font-size: 0.88rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .contact-card {
+    background: var(--dark2);
+    border: 1px solid rgba(245,197,24,0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .contact-card:hover { border-color: rgba(245,197,24,0.3); transform: translateY(-4px); }
+  .contact-card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .contact-card h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .contact-card p, .contact-card a {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-card a:hover { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(245,197,24,0.1);
+    padding: 3rem 5% 2rem;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--white); display: block; font-size: 0.6rem; font-family: 'Poppins', sans-serif; letter-spacing: 3px; font-weight: 300; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy {
+    max-width: 1200px; margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 30px; right: 30px;
+    background: #25D366;
+    color: white;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 998;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: pulse 2s infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.7); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE NAV ── */
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 70px; left: 0; right: 0;
+    background: rgba(10,10,10,0.98);
+    border-bottom: 1px solid rgba(245,197,24,0.1);
+    padding: 1.5rem 5%;
+    z-index: 999;
+    flex-direction: column; gap: 1rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-visual { margin-top: 2rem; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .about-grid { grid-template-columns: 1fr; }
+    .sensei-card { max-width: 350px; }
+    .classes-grid { grid-template-columns: 1fr; }
+    .timing-wrap { grid-template-columns: 1fr; }
+    .gallery-placeholder { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:first-child { grid-column: span 2; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .camps-banner { flex-direction: column; text-align: center; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .camps-banner .btn-primary { width: 100%; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .stat-num { font-size: 2rem; }
+    .gallery-placeholder { grid-template-columns: 1fr 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    Unique Dance World
+    <span>Karate Academy</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#timing">Timings</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#enquiry" class="nav-cta">Register Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#classes" onclick="toggleMenu()">Classes</a>
+  <a href="#timing" onclick="toggleMenu()">Timings</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#enquiry" onclick="toggleMenu()" style="color:var(--gold);font-weight:600;">Register Now →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">🥋 Kuchaman City's Premier Karate Academy</div>
+      <h1 class="hero-title">
+        <span class="line-gold">Karate</span>
+        <span class="line-outline">Classes</span>
+      </h1>
+      <p class="hero-sub">Train under <strong style="color:var(--white)">National Champion Sensei Naresh Kumawat</strong> — Black Belt, 5+ years of championship experience. Build strength, discipline, and confidence.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">👧 Girls Self Defence</span>
+        <span class="hero-tag">🧒 Kids Fitness</span>
+        <span class="hero-tag">🏆 National Level Training</span>
+        <span class="hero-tag">🏫 School Camps</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#enquiry" class="btn-primary">Register Now — ₹1000/mo</a>
+        <a href="#classes" class="btn-secondary">Explore Classes <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-kanji">空手</div>
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">🥇</span>
+          <span class="stat-label">National Champ</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Class Types</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">₹1K</span>
+          <span class="stat-label">Per Month</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">4-6</span>
+          <span class="stat-label">Evening Batch</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">🛡️</span>
+          <span class="stat-label">Self Defence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Meet Your Sensei</div>
+      <h2 class="section-title">The <span>Master</span> Behind the Dojo</h2>
+      <p class="section-desc">Trained by a national-level champion who brings real competitive experience to every session.</p>
+    </div>
+    <div class="about-grid">
+      <div class="sensei-card reveal">
+        <div class="sensei-img-wrap">
+          <div class="sensei-placeholder">🥋</div>
+        </div>
+        <div class="sensei-badge">Black Belt · National Player</div>
+      </div>
+      <div class="about-text reveal">
+        <h3>Mr. Naresh Kumawat</h3>
+        <div class="sensei-title">Black Belt · National Level Karateka · Head Instructor</div>
+        <p>Sensei Naresh Kumawat is not just an instructor — he is a proven national-level competitor who has won multiple championships across several years. His journey in martial arts has shaped him into one of the most skilled and dedicated karate practitioners in the region.</p>
+        <p>With over 5 years of competitive and teaching experience, Sensei Naresh brings both technical mastery and a deep passion for empowering students of all ages — especially women and children — through the discipline of karate.</p>
+        <p>He specialises in physical fitness training, self-defence techniques, and building mental resilience. His special batches for women's safety have helped hundreds of women feel confident and secure.</p>
+        <div class="about-achievements">
+          <div class="achievement">
+            <span class="ach-icon">🥇</span>
+            <div class="ach-text">
+              <strong>National Level Player</strong>
+              <span>Multiple Championship Wins</span>
+            </div>
+          </div>
+          <div class="achievement">
+            <span class="ach-icon">🥋</span>
+            <div class="ach-text">
+              <strong>Black Belt</strong>
+              <span>Certified Karate Instructor</span>
+            </div>
+          </div>
+          <div class="achievement">
+            <span class="ach-icon">💪</span>
+            <div class="ach-text">
+              <strong>Physical Fitness Expert</strong>
+              <span>Strength & Conditioning</span>
+            </div>
+          </div>
+          <div class="achievement">
+            <span class="ach-icon">🛡️</span>
+            <div class="ach-text">
+              <strong>Women's Safety Specialist</strong>
+              <span>Special Batches for Ladies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES & PRICING -->
+<section id="classes">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Classes & <span>Pricing</span></h2>
+      <p class="section-desc">From kids to adults, beginners to advanced — find the right class for you. Seats are limited, register today.</p>
+    </div>
+    <div class="classes-grid">
+      <div class="class-card reveal">
+        <div class="class-icon-wrap">🥋</div>
+        <div class="class-body">
+          <h3>Karate Training</h3>
+          <p>Core karate techniques, forms (kata), sparring, and championship preparation under direct guidance of a national-level player. Suitable for all age groups.</p>
+        </div>
+        <div class="class-footer">
+          <div class="class-price">₹1,000 <small>/month</small></div>
+          <span class="class-tag">All Ages</span>
+        </div>
+      </div>
+      <div class="class-card featured reveal">
+        <div class="class-icon-wrap">🛡️</div>
+        <div class="class-body">
+          <h3>Girls & Ladies Self Defence</h3>
+          <p>Special batches designed exclusively for girls and women. Learn practical self-defence moves, street safety techniques, and build the confidence to protect yourself in any situation.</p>
+        </div>
+        <div class="class-footer">
+          <div class="class-price">₹1,000 <small>/month</small></div>
+          <span class="class-tag">Ladies Special</span>
+        </div>
+      </div>
+      <div class="class-card reveal">
+        <div class="class-icon-wrap">🧒</div>
+        <div class="class-body">
+          <h3>Kids Fitness Classes</h3>
+          <p>Fun, structured fitness training for children that builds strength, flexibility, focus, and discipline. A great foundation for any sport or martial art.</p>
+        </div>
+        <div class="class-footer">
+          <div class="class-price">₹1,000 <small>/month</small></div>
+          <span class="class-tag">Kids</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Training -->
+    <div class="camps-banner reveal" style="margin-top:1.5rem; background: linear-gradient(135deg, #1a1200, #1a1a1a); border-color: rgba(245,197,24,0.3);">
+      <div class="camps-text">
+        <h4>💎 Personal <span>Training</span></h4>
+        <p>One-on-one sessions tailored specifically to your goals. Pricing is customised based on schedule and requirements — contact us to discuss a package.</p>
+      </div>
+      <a href="#enquiry" class="btn-primary">Enquire Now</a>
+    </div>
+
+    <!-- School/College Camps -->
+    <div class="camps-banner reveal">
+      <div class="camps-text">
+        <h4>🏫 School & College <span>Training Camps</span></h4>
+        <p>Sensei Naresh is available for karate training camps at schools and colleges. Ideal for annual sports events, self-defence workshops, and youth fitness programs. Get in touch to schedule a camp.</p>
+      </div>
+      <a href="#enquiry" class="btn-primary">Book a Camp</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIMING -->
+<section id="timing">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Schedule</div>
+      <h2 class="section-title">Class <span>Timings</span></h2>
+      <p class="section-desc">Currently running evening batches. Morning batch coming soon — register now to get notified when it launches!</p>
+    </div>
+    <div class="timing-wrap">
+      <div class="timing-card reveal">
+        <div class="timing-time">4:00 – 6:00 PM</div>
+        <div class="timing-label">🌆 Evening Batch — Active Now</div>
+        <div class="timing-days">Monday to Saturday &nbsp;·&nbsp; All classes available<br/>City Center Mall, Kapda Market, Kuchaman City</div>
+      </div>
+      <div class="timing-card coming-soon reveal">
+        <div class="timing-time" style="color:var(--gray)">Coming Soon</div>
+        <div class="timing-label" style="color:var(--gray)">🌅 Morning Batch</div>
+        <div class="timing-days">Register now to get notified when morning sessions begin. Timings will be published on this page.</div>
+        <span class="coming-badge">🔔 Get Notified — Register Below</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">See Us in <span>Action</span></h2>
+      <p class="section-desc">Photos and videos from our training sessions, competitions, and special events. Follow us on social media for the latest updates.</p>
+    </div>
+
+    <div class="gallery-placeholder reveal">
+      <div class="gallery-item">
+        <span class="gallery-icon" style="font-size:5rem">🥋</span>
+        <div class="gallery-overlay"><span>Training Session</span></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">🏆</span>
+        <div class="gallery-overlay"><span>Championship</span></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">🛡️</span>
+        <div class="gallery-overlay"><span>Self Defence</span></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">💪</span>
+        <div class="gallery-overlay"><span>Fitness Training</span></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">🧒</span>
+        <div class="gallery-overlay"><span>Kids Class</span></div>
+      </div>
+    </div>
+
+    <p class="gallery-note reveal">📸 Photos will be updated regularly. Share your training moments with us!</p>
+
+    <div class="social-links reveal" style="justify-content:center; margin-top:2rem;">
+      <a href="#" class="social-btn" id="instaLink">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="#" class="social-btn" id="ytLink">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY / REGISTRATION -->
+<section id="enquiry">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Join Us</div>
+      <h2 class="section-title">Register & <span>Enquire</span></h2>
+      <p class="section-desc">Seats are limited — fill in the form below and we'll get back to you within 24 hours.</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-side reveal">
+        <h3>This Summer<br/>is Special 🔥</h3>
+        <p>Register now for self defence, fitness and karate training. Whether you're enrolling yourself, your child, or looking to book a school camp — we'd love to hear from you.</p>
+        <ul class="form-info-list">
+          <li>
+            <div class="ico">📞</div>
+            <div>
+              <strong>Call / WhatsApp</strong>
+              <a href="tel:+917412876220" style="color:var(--gray);text-decoration:none;">7412876220</a> &nbsp;|&nbsp; <a href="tel:+918949185300" style="color:var(--gray);text-decoration:none;">8949185300</a>
+            </div>
+          </li>
+          <li>
+            <div class="ico">📍</div>
+            <div>
+              <strong>Location</strong>
+              City Center Mall, Kapda Market, Kuchaman City
+            </div>
+          </li>
+          <li>
+            <div class="ico">🕐</div>
+            <div>
+              <strong>Evening Batch Timings</strong>
+              Monday – Saturday &nbsp;·&nbsp; 4:00 PM – 6:00 PM
+            </div>
+          </li>
+          <li>
+            <div class="ico">💰</div>
+            <div>
+              <strong>Monthly Fee</strong>
+              ₹1,000/month · Personal Training on request
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="reg-form reveal" id="regFormWrap">
+        <div id="formContent">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" id="fname" placeholder="Your first name" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="lname" placeholder="Your last name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="Your WhatsApp / mobile number" required />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="age" placeholder="Your age (or child's age)" min="4" max="80" />
+          </div>
+          <div class="form-group">
+            <label>Interested In *</label>
+            <select id="classType" required>
+              <option value="" disabled selected>Select a class / program</option>
+              <option>Karate Training (General)</option>
+              <option>Girls & Ladies Self Defence</option>
+              <option>Kids Fitness Classes</option>
+              <option>Personal Training (1-on-1)</option>
+              <option>School / College Training Camp</option>
+              <option>Morning Batch (notify me when available)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea id="message" placeholder="Any questions, special requirements, or batch preferences..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Submit Registration →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="tick">🥋</div>
+          <h4>Registration Received!</h4>
+          <p>Thank you for your interest. Sensei Naresh or his team will contact you on your number within 24 hours.<br/><br/>
+          For immediate enquiries, WhatsApp us on <strong style="color:var(--gold)">7412876220</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Contact & <span>Location</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <span class="contact-card-icon">📞</span>
+        <h4>Call / WhatsApp</h4>
+        <p>
+          <a href="tel:+917412876220">7412876220</a><br/>
+          <a href="tel:+918949185300">8949185300</a>
+        </p>
+      </div>
+      <div class="contact-card reveal">
+        <span class="contact-card-icon">📍</span>
+        <h4>Location</h4>
+        <p>City Center Mall,<br/>Kapda Market,<br/>Kuchaman City, Rajasthan</p>
+      </div>
+      <div class="contact-card reveal">
+        <span class="contact-card-icon">🕐</span>
+        <h4>Timings</h4>
+        <p>Mon – Sat<br/>Evening: 4:00 PM – 6:00 PM<br/><span style="color:var(--gold);font-size:0.75rem;">Morning batch coming soon</span></p>
+      </div>
+    </div>
+
+    <!-- Embedded Map Placeholder -->
+    <div class="reveal" style="margin-top:2rem; background:var(--dark2); border:1px solid rgba(245,197,24,0.1); border-radius:4px; overflow:hidden; height:300px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; color:var(--gray); font-size:0.88rem; text-align:center; padding:2rem;">
+      <span style="font-size:2.5rem">🗺️</span>
+      <div>
+        <strong style="color:var(--white); display:block; margin-bottom:4px;">City Center Mall, Kapda Market, Kuchaman City</strong>
+        Add your Google Maps embed link here to show the exact location.<br/>
+        Contact us for directions on <a href="tel:+917412876220" style="color:var(--gold)">7412876220</a>
+      </div>
+      <a href="https://maps.google.com/?q=Kuchaman+City+Rajasthan" target="_blank" class="btn-primary" style="font-size:0.8rem; padding:10px 22px;">Open in Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#hero" class="footer-logo">
+      Unique Dance World
+      <span>Karate Academy · Kuchaman City</span>
+    </a>
+    <nav class="footer-links">
+      <a href="#about">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#timing">Timings</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#enquiry">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="footer-copy">
+    <span>© 2026 Unique Dance World – Karate Academy. All rights reserved.</span>
+    <span>City Center Mall, Kapda Market, Kuchaman City</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917412876220?text=Hi%2C%20I%20am%20interested%20in%20joining%20karate%20classes%20at%20Unique%20Dance%20World." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // NAV scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const cls = document.getElementById('classType').value;
+    if (!fname || !phone || !cls) {
+      alert('Please fill in your name, phone number, and select a class type.');
+      return;
+    }
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // Social links placeholder alert
+  document.getElementById('instaLink').addEventListener('click', function(e) {
+    if (this.getAttribute('href') === '#') {
+      e.preventDefault();
+      alert('Instagram link coming soon! Contact us on 7412876220 for now.');
+    }
+  });
+  document.getElementById('ytLink').addEventListener('click', function(e) {
+    if (this.getAttribute('href') === '#') {
+      e.preventDefault();
+      alert('YouTube channel link coming soon! Stay tuned.');
+    }
+  });
+</script>
+</body>
+</html>
